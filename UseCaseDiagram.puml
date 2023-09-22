@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+left to right direction
+
+package Role{
+    actor Customer as C
+    actor Admin as A
+}
+
+package Actions{
+    usecase "Register" as R
+    usecase "Add Media" as AM
+    usecase "Update Media" as UM
+    usecase "Delete Media" as DM
+    usecase "View Media" as VM
+    usecase "Search Media" as SM
+
+}
+
+package IncludeActions{
+
+    usecase "Login" as LL
+
+
+}
+
+C --> (R)
+C --> (VM)
+A --> (VM)
+A --> (AM)
+A --> (UM)
+A --> (DM)
+C --> (SM)
+
+
+(VM) .> (LL):include
+(AM) .> (LL):include
+(UM) .> (LL):include
+(DM) .> (LL):include
+(SM) .> (LL):include
+
+
+
+@enduml
